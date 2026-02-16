@@ -1,4 +1,11 @@
-# Simple Flow
+Gemini said
+素晴らしいです．GitHubのリポジトリは「英語で書く」のが研究者としての標準（世界中の研究者に見てもらうため）ですので，英語でプロフェッショナルな構成のREADME.mdを作成しました．
+
+このままREADME.mdというファイル名で保存すれば，GitHub上で数式も綺麗にレンダリングされます．
+
+README.md
+Markdown
+# Simple Flow Matching (PyTorch)
 
 A minimal, educational, and self-contained implementation of **Flow Matching** (specifically Optimal Transport Conditional Flow Matching) using PyTorch. 
 
@@ -6,7 +13,7 @@ This repository aims to demystify the core concepts of Flow Matching by strippin
 
 ## 🚀 Features
 
-- **Minimal Codebase**: The entire logic (Model, Training, Sampling) is contained in a single file (`main.py`).
+- **Minimal Codebase**: The entire logic (Model, Training, Sampling) is contained in a single file (`simple_flow_matching.py`).
 - **Optimal Transport Path**: Implements the linear interpolation path $x_t = (1-t)x_0 + t x_1$, which leads to straight trajectories and stable training.
 - **Visualization**: Includes scripts to visualize the learned vector field and particle trajectories.
 
@@ -32,3 +39,34 @@ $$
 \mathcal{L}_{CFM}(\theta) = \mathbb{E}_{t, q(x_1), p(x_0)} \| v_\theta(\psi_t(x_0, x_1), t) - (x_1 - x_0) \|^2
 $$
 
+## 📦 Installation
+
+```bash
+git clone <this repository>
+cd simple-flow
+pip install torch numpy matplotlib scikit-learn
+```
+
+## 🏃 Usage
+Simply run the script to train the model on the "Two Moons" dataset and visualize the results.
+
+```Bash
+python main.py
+```
+
+After training, the script will display:
+1. Training Loss: Convergence curve.
+2. Generated Samples: Mapping from Gaussian noise to the data distribution.
+3. Flow Trajectories: The paths taken by particles during the ODE solving process.
+
+## 📂 Code Structure
+- VectorFieldNet: A simple MLP that takes (x,t) as input and outputs velocity vector v.
+- train_flow_matching: Implements the OT-CFM loss.
+- sample_flow_matching: Solves the ODE $d X_t = v_\theta(X_t, t) dt$ using Euler's method.
+
+## 📚 References
+- Flow Matching for Generative Modeling (Lipman et al., 2023)
+- Flow Straight and Fast: Learning to Generate with Rectified Flow (Liu et al., 2023)
+
+## 📄 License
+MIT License
