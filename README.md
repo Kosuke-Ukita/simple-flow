@@ -1,11 +1,4 @@
-Gemini said
-素晴らしいです．GitHubのリポジトリは「英語で書く」のが研究者としての標準（世界中の研究者に見てもらうため）ですので，英語でプロフェッショナルな構成のREADME.mdを作成しました．
-
-このままREADME.mdというファイル名で保存すれば，GitHub上で数式も綺麗にレンダリングされます．
-
-README.md
-Markdown
-# Simple Flow Matching (PyTorch)
+# simple flow
 
 A minimal, educational, and self-contained implementation of **Flow Matching** (specifically Optimal Transport Conditional Flow Matching) using PyTorch. 
 
